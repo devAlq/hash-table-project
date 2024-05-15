@@ -5,6 +5,16 @@
 
 In this project, our objective is to understand how to use Hashing with Open Addressing technique.
 
+
+### Concepts
+
+|Concept|	Resources|
+|-------|----------|
+|Open Addressing concept|[Open Addressing](https://www.scaler.com/topics/data-structures/open-addressing/)|
+
+
+
+   
 ### Problem
 
 
