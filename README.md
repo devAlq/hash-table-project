@@ -1,12 +1,12 @@
 # Hash Table Project
 
 
-### Objective
+## Objective
 
 In this project, our objective is to understand how to use Hashing with Open Addressing technique.
 
 
-### Concepts
+## Concepts
 
 |Concept|	Resources|
 |-------|----------|
@@ -15,12 +15,12 @@ In this project, our objective is to understand how to use Hashing with Open Add
 
 
    
-### Problem
+## Problem
 
 
 Create a `delete` method to remove a `key` from the hash table.
 
-### Implementation
+## Implementation
 
 * Calculate the initial index for the key using the hash function.
 * Use a while loop to search for the key in the table, the value at `table[index]` is not 0 (indicating an empty slot).
