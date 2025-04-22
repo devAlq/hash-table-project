@@ -28,7 +28,7 @@ Create a `delete` method to remove a `key` from the hash table.
 * To delete the key, assign the value -1 to `table[index]` (this acts as a deleted flag).
 * Decrement the size by 1 to reflect the removal of an element.
 * Return true to indicate a successful deletion.
-* If the loop completes without finding a match the value at table[index] is 0), return false to indicate an unsuccessful deletion.
+* If the loop completes without finding a match the value at table[index], return false to indicate an unsuccessful deletion.
 
 
 ```java
