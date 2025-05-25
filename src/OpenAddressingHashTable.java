@@ -1,45 +1,59 @@
-public class OpenAddressingHashTable {
-    private int[] table;
+class Entry {
+    int key;
+    int value;
+
+    Entry(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
+}
+
+public class project {
+    private Entry[] arr;
     private int capacity;
     private int size;
 
-    public OpenAddressingHashTable(int capacity) {
+    public project(int capacity) {
         this.capacity = capacity;
-        this.table = new int[capacity];
+        this.arr = new Entry[capacity];
         this.size = 0;
     }
 
-    public boolean insert(int key) {
+    public boolean insert(int key, int value) {
         if (size == capacity)
             return false;
 
         int index = hash(key);
 
-        while (table[index] != 0 && table[index] != -1) {
+        while (arr[index] != null && arr[index].key != -1) {
+            if (arr[index].key == key) {
+                // Update the value if the key already exists
+                arr[index].value = value;
+                return true;
+            }
             index = (index + 1) % capacity;
         }
 
-        table[index] = key;
+        arr[index] = new Entry(key, value);
         size++;
         return true;
     }
 
-    public boolean search(int key) {
+    public Integer search(int key) {
         int index = hash(key);
 
-        while (table[index] != 0) {
-            if (table[index] == key)
-                return true;
+        while (arr[index] != null) {
+            if (arr[index].key == key)
+                return arr[index].value;
 
             index = (index + 1) % capacity;
         }
 
-        return false;
+        return null; // Return null if the key is not found
     }
 
     public boolean delete(int key) {
-
-         /* write your code here */
+      // Return false if the key is not found
     }
 
     private int hash(int key) {
@@ -47,16 +61,17 @@ public class OpenAddressingHashTable {
     }
 
     public static void main(String[] args) {
+        project hashTable = new project(10);
 
-        OpenAddressingHashTable hashTable = new OpenAddressingHashTable(10);
+        hashTable.insert(5, 100);
+        hashTable.insert(15, 200);
+        hashTable.insert(25, 300);
+        hashTable.insert(35, 400);
 
-        hashTable.insert(5);
-        hashTable.insert(15);
-        hashTable.insert(25);
-        hashTable.insert(35);
+        System.out.println("Search 15: " + hashTable.search(15)); // Output: 200
+        System.out.println("Search 20: " + hashTable.search(20)); // Output: null
 
-        System.out.println("Search 15: " + hashTable.search(15));
-
-        System.out.println("Search 20: " + hashTable.search(20));
+        hashTable.delete(15);
+        System.out.println("Search 15 after deletion: " + hashTable.search(15)); // Output: null
     }
 }
