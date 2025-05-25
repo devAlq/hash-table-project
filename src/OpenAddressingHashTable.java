@@ -8,7 +8,7 @@ class Entry {
     }
 }
 
-public class project {
+public class openAddres {
     private Entry[] arr;
     private int capacity;
     private int size;
@@ -53,7 +53,8 @@ public class project {
     }
 
     public boolean delete(int key) {
-      // Return false if the key is not found
+
+ /* write your code here */
     }
 
     private int hash(int key) {
@@ -61,17 +62,18 @@ public class project {
     }
 
     public static void main(String[] args) {
-        project hashTable = new project(10);
+        openAddres hashTable = new openAddres(10);
 
         hashTable.insert(5, 100);
         hashTable.insert(15, 200);
         hashTable.insert(25, 300);
         hashTable.insert(35, 400);
 
-        System.out.println("Search 15: " + hashTable.search(15)); // Output: 200
-        System.out.println("Search 20: " + hashTable.search(20)); // Output: null
+        System.out.println("Search 15: " + hashTable.search(15)); 
+        System.out.println("Search 20: " + hashTable.search(20)); 
 
         hashTable.delete(15);
-        System.out.println("Search 15 after deletion: " + hashTable.search(15)); // Output: null
+        System.out.println("Search 15 after deletion: " + hashTable.search(15)); 
     }
 }
+
