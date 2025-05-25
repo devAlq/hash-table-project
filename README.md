@@ -17,64 +17,71 @@ In this project, our objective is to understand how to use Hashing with Open Add
    
 ## Problem
 
-
-Create a `delete` method to remove a `key` from the hash table.
+Implement the `delete` method for an open addressing hash table. 
 
 ## Implementation
 
-* Calculate the initial index for the key using the hash function.
-* Use a while loop to search for the key in the table, the value at `table[index]` is not 0 (indicating an empty slot).
-* Within the loop, check if the value at `table[index]` is equal to the key being deleted. If there is a match, proceed to remove the key from the table.
-* To delete the key, assign the value -1 to `table[index]` (this acts as a deleted flag).
-* Decrement the size by 1 to reflect the removal of an element.
-* Return true to indicate a successful deletion.
-* If the loop completes without finding a match the value at table[index], return false to indicate an unsuccessful deletion.
-
+- If the key is found, mark it as deleted and return true.
+- If the key is not found, return false.
 
 ```java
+class Entry {
+    int key;
+    int value;
 
-public class OpenAddressingHashTable {
-    private int[] arr;
+    Entry(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
+}
+
+public class openAddres {
+    private Entry[] arr;
     private int capacity;
     private int size;
 
-    public OpenAddressingHashTable(int capacity) {
+    public project(int capacity) {
         this.capacity = capacity;
-        this.arr = new int[capacity];
+        this.arr = new Entry[capacity];
         this.size = 0;
     }
 
-    public boolean insert(int key) {
+    public boolean insert(int key, int value) {
         if (size == capacity)
             return false;
 
         int index = hash(key);
 
-        while (arr[index] != 0 && arr[index] != -1) {
+        while (arr[index] != null && arr[index].key != -1) {
+            if (arr[index].key == key) {
+                // Update the value if the key already exists
+                arr[index].value = value;
+                return true;
+            }
             index = (index + 1) % capacity;
         }
 
-        arr[index] = key;
+        arr[index] = new Entry(key, value);
         size++;
         return true;
     }
 
-    public boolean search(int key) {
+    public Integer search(int key) {
         int index = hash(key);
 
-        while (arr[index] != 0) {
-            if (arr[index] == key)
-                return true;
+        while (arr[index] != null) {
+            if (arr[index].key == key)
+                return arr[index].value;
 
             index = (index + 1) % capacity;
         }
 
-        return false;
+        return null; // Return null if the key is not found
     }
 
     public boolean delete(int key) {
 
-         /* write your code here */
+ /* write your code here */
     }
 
     private int hash(int key) {
@@ -82,17 +89,19 @@ public class OpenAddressingHashTable {
     }
 
     public static void main(String[] args) {
+        openAddres hashTable = new openAddres(10);
 
-        OpenAddressingHashTable hashTable = new OpenAddressingHashTable(10);
+        hashTable.insert(5, 100);
+        hashTable.insert(15, 200);
+        hashTable.insert(25, 300);
+        hashTable.insert(35, 400);
 
-        hashTable.insert(5);
-        hashTable.insert(15);
-        hashTable.insert(25);
-        hashTable.insert(35);
+        System.out.println("Search 15: " + hashTable.search(15)); 
+        System.out.println("Search 20: " + hashTable.search(20)); 
 
-        System.out.println("Search 15: " + hashTable.search(15));
-
-        System.out.println("Search 20: " + hashTable.search(20));
+        hashTable.delete(15);
+        System.out.println("Search 15 after deletion: " + hashTable.search(15)); 
     }
 }
+
 ```
