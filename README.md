@@ -35,12 +35,12 @@ class Entry {
     }
 }
 
-public class openAddres {
+public class HashTable {
     private Entry[] arr;
     private int capacity;
     private int size;
 
-    public openAddres(int capacity) {
+    public HashTable(int capacity) {
         this.capacity = capacity;
         this.arr = new Entry[capacity];
         this.size = 0;
@@ -89,19 +89,20 @@ public class openAddres {
     }
 
     public static void main(String[] args) {
-        openAddres hashTable = new openAddres(10);
+        HashTable hashtable = new HashTable(10);
 
-        hashTable.insert(5, 100);
-        hashTable.insert(15, 200);
-        hashTable.insert(25, 300);
-        hashTable.insert(35, 400);
+        hashtable.insert(5, 100);
+        hashtable.insert(15, 200);
+        hashtable.insert(25, 300);
+        hashtable.insert(35, 400);
 
-        System.out.println("Search 15: " + hashTable.search(15)); 
-        System.out.println("Search 20: " + hashTable.search(20)); 
+        System.out.println("Search 15: " + hashtable.search(15)); 
+        System.out.println("Search 20: " + hashtable.search(20)); 
 
-        hashTable.delete(15);
-        System.out.println("Search 15 after deletion: " + hashTable.search(15)); 
+        hashtable.delete(15);
+        System.out.println("Search 15 after deletion: " + hashtable.search(15)); 
     }
 }
+
 
 ```
