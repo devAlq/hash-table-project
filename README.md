@@ -40,7 +40,7 @@ public class openAddres {
     private int capacity;
     private int size;
 
-    public project(int capacity) {
+    public openAddres(int capacity) {
         this.capacity = capacity;
         this.arr = new Entry[capacity];
         this.size = 0;
