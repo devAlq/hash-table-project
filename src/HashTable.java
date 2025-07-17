@@ -58,7 +58,6 @@ public class HashTable {
             int hashIndex = hash(key);
              while (this.arr[hashIndex] != null) {
                 if (this.arr[hashIndex].key == key) {
-                    Entry temp = this.arr[hashIndex];
                     this.arr[hashIndex] = this.dummy;
                 this.size--;
                 return true;
